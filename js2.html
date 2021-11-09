@@ -11,10 +11,20 @@
 		Nhập giá trị số:
 		<input type="number" id="input_so">
 		<br>
-		<button type="button">Kết quả</button>
+		<button type="button" onclick="in_ra()">Kết quả</button>
 	</form>
+	<div id="ket_qua"></div>
 	<script>
-		
+		function in_ra(){
+			let so = document.getElementById("input_so").value;
+			if  (so % 2 == 0){
+				document.getElementById('ket_qua').innerHTML = 'Số đã nhập là số chẵn'
+			}else if(so % 2 == 1){
+				document.getElementById('ket_qua').innerHTML = 'Số đã cho là số lẻ'
+			}else{
+				document.getElementById('ket_qua').innerHTML = 'Số bạn nhập đã bị sai'
+			}
+		}
 	</script>
 </body>
 </html>
