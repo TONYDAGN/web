@@ -14,10 +14,14 @@
 		<button type="button" onclick="in_ra()">Kết quả</button>
 	</form>
 	<div id="ket_qua"></div>
+	<div id="in_day"></div>
+	<div>
+		<img src="img\Bai 4.3 - Hoa Moc Lan\images\buom3.gif">
+	</div>
 	<script>
+		var mang = [];
 		function in_ra(){
 			let so = document.getElementById("input_so").value;
-			let i = 1;
 			if  (so % 2 == 0){
 				document.getElementById('ket_qua').innerHTML = 'Số đã nhập là số chẵn'
 			}else if(so % 2 == 1){
@@ -25,7 +29,10 @@
 			}else{
 				document.getElementById('ket_qua').innerHTML = 'Số bạn nhập đã bị sai'
 			}
-			
+			for( i=1 ; i < so; i++){
+				mang.push(i);
+			}
+			document.getElementById('in_day').innerHTML = mang;
 		}
 	</script>
 </body>
