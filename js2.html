@@ -7,20 +7,27 @@
 	<title>Java Script Buổi 2</title>
 </head>
 <body>
-	<form>
-		Nhập giá trị số:
-		<input type="number" id="input_so">
-		<br>
-		<button type="button" onclick="in_ra()">Kết quả</button>
-	</form>
-	<div id="ket_qua"></div>
-	<div id="in_day"></div>
-	<div>
-		<img src="img\Bai 4.3 - Hoa Moc Lan\images\buom3.gif">
+	<div style="background-color: antiquewhite; width: 100%; height: 700px;">
+		<!-- Khai báo form để thực thi việc nhập giá trị -->
+		<form>
+			Nhập giá trị số:
+			<input type="number" id="input_so">
+			<br>
+			<button type="button" onclick="in_ra()">Kết quả</button>
+		</form>
+	
+		<!-- Dùng thẻ div để tạo giao diện cho việc thể hiện kết quả -->
+		<div id="ket_qua"></div>
+		<div id="in_day"></div>
+		<div id="so_lan_nhap"></div>
 	</div>
+
+	<!-- Khai báo script để tương tác vs số liệu đầu vào  -->
 	<script>
-		var mang = [];
+		let chuoi = '';
+		let n = 0;
 		function in_ra(){
+			// Xác định số đã nhâp là chẵn hay lẻ
 			let so = document.getElementById("input_so").value;
 			if  (so % 2 == 0){
 				document.getElementById('ket_qua').innerHTML = 'Số đã nhập là số chẵn'
@@ -29,10 +36,21 @@
 			}else{
 				document.getElementById('ket_qua').innerHTML = 'Số bạn nhập đã bị sai'
 			}
+
+			// Tạo dãy từ 1 tới số vừa nhập
+			let mang = [];
 			for( i=1 ; i < so; i++){
 				mang.push(i);
 			}
-			document.getElementById('in_day').innerHTML = mang;
+			for (i=0; i < mang.length; i++){
+				chuoi += mang[i]
+				chuoi += ' '
+			}
+			document.getElementById('in_day').innerHTML = 'Dãy số bắt đầu từ 1 là: ' + chuoi;
+
+			// Hiện thỉ số lần đã nhập
+			n += 1
+			document.getElementById('so_lan_nhap').innerHTML ="Số lần đã nhập là: " + n;
 		}
 	</script>
 </body>
