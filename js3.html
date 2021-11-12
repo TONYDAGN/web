@@ -15,6 +15,7 @@
             <button type="button" onclick="nhap()">Nhập</button>
             <button type="button" onclick="ket_qua()">Kết quả</button>
         </form>
+        <br>
 
         <!-- Tạo giao diện hiển thị kết quả -->
         <div id="gia_tri_mang"></div>
@@ -29,8 +30,7 @@
         <script>
             
             let mang = [];
-            // let chan = '';
-            // let le = '';
+
             function nhap(){
                 // lấy giá trị input về cho mảng
                 let so = parseInt(document.getElementById('input_so').value);
@@ -42,37 +42,42 @@
                 // Xoá các giá trị đã lọc chẵn lẻ cho lần nhập trước đó
                 let chan = '';
                 let le = '';
-                let day_nguyen_to = '';
                 let tong = 0;
                 let max = 0;
-                let dem_so_nghiem = 0;
+                let day_nguyen_to = '';
 
 
                 // Lọc số liệu
                 for (i=0; i < mang.length; i++){
+
+                    // Kiểm tra chẵn lẻ
                     if(mang[i] % 2 == 0){
                         chan += mang[i] +' ';
                     }else{
                         le += mang[i] + ' ';
                     }
+
+                    // Tính tổng
                     tong += mang[i];
+
+                    // Tìm giá trị lớn nhất trong mảng
                     if (max < mang[i]){
                         max = mang[i]
                     }
 
                     // kiểm tra phần tử thứ i trong mảng có phải số nguyên tố không
                     // Nếu là số nguyên tố thì ghi phần tử đó vào chuỗi day_nguyen_to;
+                    let dem_so_nghiem = 0;
+
                     for (j = 1; j <= mang[i]; j++){
                         if (mang[i] % j == 0){
                             dem_so_nghiem ++;
                         }
                     }
                     if (dem_so_nghiem == 2){
-                        day_nguyen_to += mang[i] + ' '
+                        day_nguyen_to += mang[i] + ' ';
                     }
                 }
-
-                if(dem_so_nghiem == 2)
 
                 document.getElementById('so_chan').innerHTML = 'Các số chẵn trong mảng là: ' + chan;
                 document.getElementById('so_le').innerHTML = 'Các số lẻ trong mảng là: ' + le;
