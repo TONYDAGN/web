@@ -29,8 +29,8 @@
         <script>
             
             let mang = [];
-            let chan = '';
-            let le = '';
+            // let chan = '';
+            // let le = '';
             function nhap(){
                 // lấy giá trị input về cho mảng
                 let so = parseInt(document.getElementById('input_so').value);
@@ -38,26 +38,53 @@
                 document.getElementById('input_so').value = '';
             }
             function ket_qua(){
+                
+                // Xoá các giá trị đã lọc chẵn lẻ cho lần nhập trước đó
+                let chan = '';
+                let le = '';
+                let day_nguyen_to = '';
+                let tong = 0;
+                let max = 0;
+                let dem_so_nghiem = 0;
 
-                // Xoá các giá trị đã nhập trước đó
-                chan = '';
-                le = '';
-                // In ra toàn bộ số chẵn lẻ
+
+                // Lọc số liệu
                 for (i=0; i < mang.length; i++){
                     if(mang[i] % 2 == 0){
                         chan += mang[i] +' ';
                     }else{
                         le += mang[i] + ' ';
                     }
+                    tong += mang[i];
+                    if (max < mang[i]){
+                        max = mang[i]
+                    }
+
+                    // kiểm tra phần tử thứ i trong mảng có phải số nguyên tố không
+                    // Nếu là số nguyên tố thì ghi phần tử đó vào chuỗi day_nguyen_to;
+                    for (j = 1; j <= mang[i]; j++){
+                        if (mang[i] % j == 0){
+                            dem_so_nghiem ++;
+                        }
+                    }
+                    if (dem_so_nghiem == 2){
+                        day_nguyen_to += mang[i] + ' '
+                    }
                 }
+
+                if(dem_so_nghiem == 2)
+
                 document.getElementById('so_chan').innerHTML = 'Các số chẵn trong mảng là: ' + chan;
                 document.getElementById('so_le').innerHTML = 'Các số lẻ trong mảng là: ' + le;
 
-                // let tong = total + Math.round(mang);
-                // document.getElementById('tong_phan_tu').innerHTML = 'Tổng các phần tử trong mảng bằng: ' + tong;
+                document.getElementById('tong_phan_tu').innerHTML = 'Tổng các phần tử trong mảng bằng: ' + tong;
 
-                // Xoá các giá trị còn trong mảng để không bị lặp giá trị cho lần nhập tiếp theo
-                // mang = [];
+                document.getElementById('so_lon_nhat').innerHTML = 'Số lớn nhất trong mảng là: ' + max;
+
+                document.getElementById('so_nguyen_to').innerHTML = 'Các số nguyên tố có trong mảng là: ' + day_nguyen_to;
+
+                // Xoá các giá trị còn trong mảng để không bị lặp giá trị trong mảng cho lần nhập tiếp theo
+                mang = [];
             }
         </script>
     </div>
