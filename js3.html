@@ -35,20 +35,30 @@
                 // lấy giá trị input về cho mảng
                 let so = parseInt(document.getElementById('input_so').value);
                 mang.push(so);
-                document.getElementById('gia_tri_mang').innerHTML = mang;
+                document.getElementById('input_so').value = '';
             }
-            // function ket_qua(){
-            //     // In ra toàn bộ số chẵn lẻ
-            //     for (i=0; i < mang.length; i++){
-            //         if(mang(i) % 2 == 0){
-            //             chan.push = mang(i);
-            //         }else{
-            //             le.push = mang(i)
-            //         }
-            //     }
-            //     document.getElementById(so_chan).innerHTML = chan +' ';
-            //     document.getElementById(so_le).innerHTML = le +' ';
-            // }
+            function ket_qua(){
+
+                // Xoá các giá trị đã nhập trước đó
+                chan = '';
+                le = '';
+                // In ra toàn bộ số chẵn lẻ
+                for (i=0; i < mang.length; i++){
+                    if(mang[i] % 2 == 0){
+                        chan += mang[i] +' ';
+                    }else{
+                        le += mang[i] + ' ';
+                    }
+                }
+                document.getElementById('so_chan').innerHTML = 'Các số chẵn trong mảng là: ' + chan;
+                document.getElementById('so_le').innerHTML = 'Các số lẻ trong mảng là: ' + le;
+
+                // let tong = total + Math.round(mang);
+                // document.getElementById('tong_phan_tu').innerHTML = 'Tổng các phần tử trong mảng bằng: ' + tong;
+
+                // Xoá các giá trị còn trong mảng để không bị lặp giá trị cho lần nhập tiếp theo
+                // mang = [];
+            }
         </script>
     </div>
 </body>
