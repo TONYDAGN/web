@@ -29,7 +29,10 @@
 		let chuoi = '';
 		let n = 0;
 		function in_ra(){
+
+			// Xoá các chuỗi để tránh trùng lặp
 			chuoi = '';
+			
 			// Xác định số đã nhâp là chẵn hay lẻ
 			let so = document.getElementById("input_so").value;
 			if  (so % 2 == 0){
