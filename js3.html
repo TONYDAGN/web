@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script buổi 3 - Array</title>
+</head>
+<body>
+    <div>
+        <!-- Tạo form để nhập giá trị vào -->
+        <form>
+            Nhập số phần tử:
+            <input type="number" id="input_so">
+            <button type="button" onclick="nhap()">Nhập</button>
+            <button type="button" onclick="ket_qua()">Kết quả</button>
+        </form>
+
+        <!-- Tạo giao diện hiển thị kết quả -->
+        <div id="gia_tri_mang"></div>
+        <div id="so_chan"></div>
+        <div id="so_le"></div>
+        <div id="tong_phan_tu"></div>
+        <div id="so_lon_nhat"></div>
+        <div id="so_nguyen_to"></div>
+        <div id="in_mau"></div>
+
+        <!-- Tạo JS để thực hiện tương tác -->
+        <script>
+            
+            let mang = [];
+            let chan = '';
+            let le = '';
+            function nhap(){
+                // lấy giá trị input về cho mảng
+                let so = parseInt(document.getElementById('input_so').value);
+                mang.push(so);
+                document.getElementById('gia_tri_mang').innerHTML = mang;
+            }
+            // function ket_qua(){
+            //     // In ra toàn bộ số chẵn lẻ
+            //     for (i=0; i < mang.length; i++){
+            //         if(mang(i) % 2 == 0){
+            //             chan.push = mang(i);
+            //         }else{
+            //             le.push = mang(i)
+            //         }
+            //     }
+            //     document.getElementById(so_chan).innerHTML = chan +' ';
+            //     document.getElementById(so_le).innerHTML = le +' ';
+            // }
+        </script>
+    </div>
+</body>
+</html>
