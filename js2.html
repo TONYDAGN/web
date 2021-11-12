@@ -17,7 +17,8 @@
 		</form>
 	
 		<!-- Dùng thẻ div để tạo giao diện cho việc thể hiện kết quả -->
-		<div id="ket_qua"></div>
+		<div id="chan_le"></div>
+		<div id="nguyen_to"></div>
 		<div id="in_day"></div>
 		<div id="so_lan_nhap"></div>
 	</div>
@@ -27,14 +28,29 @@
 		let chuoi = '';
 		let n = 0;
 		function in_ra(){
+			chuoi = '';
 			// Xác định số đã nhâp là chẵn hay lẻ
 			let so = document.getElementById("input_so").value;
 			if  (so % 2 == 0){
-				document.getElementById('ket_qua').innerHTML = 'Số đã nhập là số chẵn'
+				document.getElementById('chan_le').innerHTML = 'Số đã nhập là số chẵn'
 			}else if(so % 2 == 1){
-				document.getElementById('ket_qua').innerHTML = 'Số đã cho là số lẻ'
+				document.getElementById('chan_le').innerHTML = 'Số đã cho là số lẻ'
 			}else{
-				document.getElementById('ket_qua').innerHTML = 'Số bạn nhập đã bị sai'
+				document.getElementById('chan_le').innerHTML = 'Số bạn nhập đã bị sai'
+			}
+
+			// In ra chuỗi có phải số nguyên tố hay không
+			let dem_chia_het = 0;
+			for (i=1; i<=so; i ++){
+				if(so % i ==0){
+					dem_chia_het ++
+				}
+			}
+
+			if (dem_chia_het ==2){
+				document.getElementById('nguyen_to').innerHTML = 'Số đã nhập là số nguyên tố'
+			}else{
+				document.getElementById('nguyen_to').innerHTML = 'Số đã nhập không phải số nguyên tố'
 			}
 
 			// Tạo dãy từ 1 tới số vừa nhập
@@ -49,7 +65,7 @@
 			document.getElementById('in_day').innerHTML = 'Dãy số bắt đầu từ 1 là: ' + chuoi;
 
 			// Hiện thỉ số lần đã nhập
-			n += 1
+			n +=1
 			document.getElementById('so_lan_nhap').innerHTML ="Số lần đã nhập là: " + n;
 		}
 	</script>
