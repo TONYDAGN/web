@@ -1,0 +1,6 @@
+ký hiệu:	min	max
+
++	1	vô cực
+[]	1	1
+
+\	ép nó là ký hiệu bình thường
