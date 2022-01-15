@@ -10,27 +10,77 @@
 <form>
     Tên 
     <input type="text" id="name">
+    <span id="loi_ten"></span>
     <br>
-    Ngày sinh
-    <input type="date" id="date">
-    <br>   
     Giới tính
     <input type="radio" name="gioi_tinh">Nam
     <input type="radio" name="gioi_tinh">Nữ
+    <span id="loi_gioi_tinh"></span>
+    <br>
+    Địa chỉ
+    <input type="text" id="adress">
     <br>
     Email
     <input type="email" id="email">
+    <span id="loi_email"></span>
     <br>
     Mật khẩu
     <input type="password" id="password">
+    <span id="loi_mat_khau"></span>
     <br>
-    Lớp
+    Sở thích
     <select>
         <option>Lập trình</option>
-        <option>Bảo mật</option>
+        <option>Đá banh</option>
+        <option>Ngủ</option>
     </select>
-    <Button type="submit">Đăng ký</Button>
-
+    <br>
+    <Button type="button" onclick="return kiem_tra()">Đăng ký</Button>
 </form>
+<script>
+    function kiem_tra(){
+        let loi = false;
+
+        //Kiểm tra tên
+        let ten = document.getElementById('name').value;
+        if (ten.length ===0){
+            document.getElementById('loi_ten').innerHTML = 'Tên không được để trống'
+            loi = true;
+        }else{
+            let regex_ten = /^([A-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÃÐÏÙOUÃÅÃÄÂ[a-zàáääèéééiiòóõõùúädiŭouãạåäaúứừừữuỳyÿỹ]{1,6}\s?)+$/;
+            if(!regex_ten.test(ten)){
+                document.getElementById('loi_ten').innerHTML = 'Tên không hợp lệ'
+                loi = true;
+            }else{
+                document.getElementById('loi_ten').innerHTML = ''
+            }
+        }
+
+        //Kiểm tra giới tính
+        let mang_gioi_tinh = document.getElementsByName('gioi_tinh');
+        let kiem_tra_gioi_tinh = false;
+        for(i=0; i < mang_gioi_tinh.length; i++){
+            if (mang_gioi_tinh[i].checked ){
+                kiem_tra_gioi_tinh = true;
+            }
+        }
+        if (kiem_tra_gioi_tinh == false){
+            document.getElementById('loi_gioi_tinh').innerHTML = 'Không được để giới tính trống';
+            loi =  true;
+        }else{
+            document.getElementById('loi_gioi_tinh').innerHTML = '';
+        }
+
+        //kiểm tra email
+
+
+
+        //hàm để kiểm tra còn lỗi không thì in ra
+        if(loi){
+            return false;
+        }
+    }
+
+</script>
 </body>
 </html>
