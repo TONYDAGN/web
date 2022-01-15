@@ -47,7 +47,7 @@
             document.getElementById('loi_ten').innerHTML = 'Tên không được để trống'
             loi = true;
         }else{
-            let regex_ten = /^([A-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÃÐÏÙOUÃÅÃÄÂ[a-zàáääèéééiiòóõõùúädiŭouãạåäaúứừừữuỳyÿỹ]{1,6}\s?)+$/;
+            let regex_ten = /^([AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]+(\ [AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]*)+$)/;
             if(!regex_ten.test(ten)){
                 document.getElementById('loi_ten').innerHTML = 'Tên không hợp lệ'
                 loi = true;
